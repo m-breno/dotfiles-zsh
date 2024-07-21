@@ -1,4 +1,4 @@
-#files: 996	version: 5.9
+#files: 997	version: 5.9
 
 _comps=(
 '-' '_precommand'
@@ -25,7 +25,6 @@ _comps=(
 'add-zsh-hook' '_add-zsh-hook'
 'admin' '_sccs'
 'afew' '_afew'
-'alacritty' '_alacritty'
 'ali' '_mh'
 'alias' '_alias'
 'amaya' '_webbrowser'
@@ -480,6 +479,7 @@ _comps=(
 'ggetopt' '_getopt'
 'ggrep' '_grep'
 'ggv' '_gnome-gv'
+'gh' '_gh'
 'ghc' '_ghc'
 'ghci' '_ghc'
 'ghc-pkg' '_ghc'
@@ -1870,10 +1870,10 @@ bindkey '^Xt' _complete_tag
 bindkey '^X~' _bash_list-choices
 bindkey '^[~' _bash_complete-word
 
-autoload -Uz _bind _alacritty _bat _bcachefs _bluetoothctl \
-            _bootctl _bspc _busctl _bwrap _checkupdates \
-            _coredumpctl _curl _downgrade _dunst _dunstctl \
-            _eza _glow _highlight _hostnamectl _journalctl \
+autoload -Uz _bind _bat _bcachefs _bluetoothctl _bootctl \
+            _bspc _busctl _bwrap _checkupdates _coredumpctl \
+            _curl _downgrade _dunst _dunstctl _eza \
+            _gh _glow _highlight _hostnamectl _journalctl \
             _kernel-install _kitty _libinput _localectl _loginctl \
             _machinectl _mkinitcpio _networkctl _nvme _oct \
             _oomctl _paccache _pacdiff _pacignore _paclist \
@@ -2068,7 +2068,8 @@ autoload -Uz _bind _alacritty _bat _bcachefs _bluetoothctl \
             _subliminal _supervisorctl _supervisord _svm _teamocil \
             _thor _tmuxinator _tmuxp _tox _tsc \
             _ts-node _udisksctl _ufw _virtualbox _vnstat \
-            _wemux _wg-quick _xsel _yarn _zcash-cli
+            _wemux _wg-quick _xsel _yarn _zcash-cli \
+            _bind
 autoload -Uz +X _call_program
 
 typeset -gUa _comp_assocs
