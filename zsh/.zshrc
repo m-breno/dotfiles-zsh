@@ -25,7 +25,6 @@ repos=(
 
   # plugins you want loaded last
   zsh-users/zsh-autosuggestions
-  marlonrichert/zsh-edit
   Aloxaf/fzf-tab
   zsh-users/zsh-syntax-highlighting
   zsh-users/zsh-history-substring-search
@@ -113,7 +112,11 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza -1 --color=always --icons=always $realpath'
 # switch group using `<` and `>`
 zstyle ':fzf-tab:*' switch-group '<' '>'
-zstyle ':fzf-tab:*' fzf-flags --layout=default
+#zstyle ':fzf-tab:*' fzf-flags --layout=default
+
+#########################
+### Other Connections ###
+#########################
 
 # fzf
 source <(fzf --zsh)
@@ -121,6 +124,21 @@ source <(fzf --zsh)
 # zoxide
 eval "$(zoxide init --cmd "cd" zsh)"
 
+upd() {
+    function plugin_update {
+    ZPLUGINDIR=${ZPLUGINDIR:-$HOME/.config/zsh/plugins}
+    for d in $ZPLUGINDIR/*/.git(/); do
+        echo "Updating ${d:h:t}..."
+        command git -C "${d:h}" pull --ff --recurse-submodules --depth 1 --rebase --autostash
+    done
+    }
+
+    echo -e '\033[1mUpdating zsh plugins...\033[0m\n'
+    plugin_update
+
+    echo -e '\n\033[1mUpdating pacman/AUR packages...\033[0m\n'
+    yay -Syu
+}
 ###############
 ### Aliases ###
 ###############
