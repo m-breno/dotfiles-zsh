@@ -24,11 +24,11 @@ repos=(
   # ...
 
   # plugins you want loaded last
-  zsh-users/zsh-history-substring-search
   zsh-users/zsh-autosuggestions
-  Aloxaf/fzf-tab
   marlonrichert/zsh-edit
+  Aloxaf/fzf-tab
   zsh-users/zsh-syntax-highlighting
+  zsh-users/zsh-history-substring-search
 )
 
 # now load your plugins
@@ -85,6 +85,8 @@ bindkey "^[[3;5~"   kill-word
 bindkey "^[[H"      beginning-of-line
 bindkey "^[[F"      end-of-line
 bindkey "^[[3~"     delete-char
+bindkey '^[[A'      history-substring-search-up
+bindkey '^[[B'      history-substring-search-down
 
 cl() { printf "\e[H\ec\e[${LINES}B"; zle .reset-prompt }
 zle -N cl
@@ -96,7 +98,7 @@ bindkey '^L' cl
 
 autoload -Uz compinit; compinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-zstyle ':completion:*' fzf-completion-opts --layout=reverse
+#zstyle ':completion:*' fzf-completion-opts --layout=reverse
 
 # disable sort when completing `git checkout`
 zstyle ':completion:*:git-checkout:*' sort false
@@ -117,7 +119,7 @@ zstyle ':fzf-tab:*' fzf-flags --layout=default
 source <(fzf --zsh)
 
 # zoxide
-eval "$(zoxide init zsh)"
+eval "$(zoxide init --cmd "cd" zsh)"
 
 ###############
 ### Aliases ###
@@ -151,7 +153,8 @@ alias mvr="mv -r"
 alias cp="cp -vi"
 alias cpr="cp -r"
 
-alias rm="rm -vI"
+alias rm="tr"
+#alias rm="rm -vI"
 alias rmr="rm -rf"
 
 ## Others
