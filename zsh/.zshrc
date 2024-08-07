@@ -128,17 +128,18 @@ upd() {
     function plugin_update {
     ZPLUGINDIR=${ZPLUGINDIR:-$HOME/.config/zsh/plugins}
     for d in $ZPLUGINDIR/*/.git(/); do
-        echo "Updating ${d:h:t}..."
+        echo -e "\033[1mUpdating ${d:h:t}...\033[0m"
         command git -C "${d:h}" pull --ff --recurse-submodules --depth 1 --rebase --autostash
     done
     }
 
-    echo -e '\033[1mUpdating zsh plugins...\033[0m\n'
+    echo -e '\033[1m:: Updating zsh plugins...\033[0m\n'
     plugin_update
 
-    echo -e '\n\033[1mUpdating pacman/AUR packages...\033[0m\n'
+    echo -e '\n\033[1m:: Updating pacman/AUR packages...\033[0m\n'
     yay -Syu
 }
+
 ###############
 ### Aliases ###
 ###############
@@ -161,7 +162,7 @@ alias llar="lla -r"
 alias tr="trash"
 alias tl="trash-list"
 alias trm="trash-remove"
-alias tre="trash-empty"
+alias tre="trash-restore"
 alias te="trash-empty"
 
 #
