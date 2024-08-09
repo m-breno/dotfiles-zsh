@@ -177,4 +177,6 @@ alias rm="tr"
 alias rmr="rm -rf"
 
 ## Others
-
+#
+#
+unset ZSH_AUTOSUGGEST_USE_ASYNC
