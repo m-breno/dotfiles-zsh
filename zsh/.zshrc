@@ -176,7 +176,9 @@ alias rm="tr"
 #alias rm="rm -vI"
 alias rmr="rm -rf"
 
+# xdg
+alias adb='HOME="$XDG_DATA_HOME"/android adb'
+
 ## Others
-#
-#
+
 unset ZSH_AUTOSUGGEST_USE_ASYNC
