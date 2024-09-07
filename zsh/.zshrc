@@ -77,6 +77,8 @@ select-word-style bash
 ### Keybindings ###
 ###################
 
+bindkey -e
+
 bindkey "^[[1;5C"   forward-word
 bindkey "^[[1;5D"   backward-word
 bindkey "^H"        backward-kill-word
@@ -165,12 +167,10 @@ alias trm="trash-remove"
 alias tre="trash-restore"
 alias te="trash-empty"
 
-#
-alias mv="mv -vi"
-alias mvr="mv -r"
+# files
+alias mv="mv -v"
 
-alias cp="cp -vi"
-alias cpr="cp -r"
+alias cp="cp -vr"
 
 alias rm="tr"
 #alias rm="rm -vI"
@@ -182,3 +182,4 @@ alias adb='HOME="$XDG_DATA_HOME"/android adb'
 ## Others
 
 unset ZSH_AUTOSUGGEST_USE_ASYNC
+DISABLE_AUTO_TITLE="false"
