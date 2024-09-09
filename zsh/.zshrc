@@ -168,6 +168,9 @@ alias tre="trash-restore"
 alias te="trash-empty"
 
 # files
+
+alias mkdir="mkdir -pv"
+
 alias mv="mv -v"
 
 alias cp="cp -vr"
