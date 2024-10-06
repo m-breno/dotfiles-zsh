@@ -179,6 +179,11 @@ alias rm="tr"
 #alias rm="rm -vI"
 alias rmr="rm -rf"
 
+# Colors
+alias diff='diff --color=auto'
+alias grep='grep --color=auto'
+alias ip='ip -color=auto'
+
 # xdg
 alias adb='HOME="$XDG_DATA_HOME"/android adb'
 
@@ -186,3 +191,7 @@ alias adb='HOME="$XDG_DATA_HOME"/android adb'
 
 unset ZSH_AUTOSUGGEST_USE_ASYNC
 DISABLE_AUTO_TITLE="false"
+
+#(cat ~/.cache/wal/sequences &)
+
+export PATH=$PATH:/home/breno/.spicetify
