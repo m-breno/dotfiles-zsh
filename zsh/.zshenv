@@ -35,7 +35,7 @@ export ANDROID_USER_HOME="$XDG_DATA_HOME"/android
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
 
 # Python
-export PYTHONSTARTUP="$HOME"/python/pythonrc
+export PYTHONSTARTUP="$XDG_CONFIG_HOME"/python/pythonrc
 
 export ICEAUTHORITY="$XDG_CACHE_HOME"/ICEauthority
 
