@@ -190,7 +190,7 @@ alias adb='HOME="$XDG_DATA_HOME"/android adb'
 ## Others
 
 unset ZSH_AUTOSUGGEST_USE_ASYNC
-DISABLE_AUTO_TITLE="false"
+#DISABLE_AUTO_TITLE="false"
 
 #(cat ~/.cache/wal/sequences &)
 
