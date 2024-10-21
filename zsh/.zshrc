@@ -15,24 +15,22 @@ source $ZPLUGINDIR/zsh_unplugged/zsh_unplugged.zsh
 
 # make list of the Zsh plugins you use
 repos=(
-  # plugins that you want loaded first
-  #sindresorhus/pure
+  sindresorhus/pure
 
-  # other plugins
   zsh-users/zsh-completions
-  #rupa/z
-  # ...
 
-  # plugins you want loaded last
+  ohmyzsh/ohmyzsh/plugins/git # manual: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git/git.plugin.zsh
   zsh-users/zsh-autosuggestions
   Aloxaf/fzf-tab
   zsh-users/zsh-syntax-highlighting
   zsh-users/zsh-history-substring-search
+  #archwiki/zsh-window-title # manual: https://wiki.archlinux.org/title/Zsh#xterm_title
 )
 
 # now load your plugins
 plugin-load $repos
 
+ZSH_WINDOW_TITLE_COMMAND_PREFIXES=( sudo git g )
 ##############
 ### Prompt ###
 ##############
@@ -40,17 +38,32 @@ plugin-load $repos
 ## Enable bottom prompt
 printf "\e[H\ec\e[${LINES}B"
 
+# Pure options
+#PURE_CMD_MAX_EXEC_TIME=5
+#PURE_GIT_PULL=
+#PURE_GIT_UNTRACKED_DIRTY=
+#PURE_GIT_DELAY_DIRTY_CHECK=
+#PURE_PROMPT_SYMBOL=
+#PURE_PROMPT_VICMD_SYMBOL=
+#PURE_GIT_DOWN_ARROW=
+#PURE_GIT_UP_ARROW=
+#PURE_GIT_STASH_SYMBOL=
+
+zstyle :prompt:pure:git:stash show yes
+#zstyle :prompt:pure:git:fetch only_upstream yes
+zstyle :prompt:pure:environment:nix-shell show no
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+#if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+#fi
 
-source ~/.local/share/powerlevel10k/powerlevel10k.zsh-theme
+#source ~/.local/share/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
-[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+#[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 
 ###############
 ### History ###
@@ -149,6 +162,26 @@ upd() {
 alias n="nvim"
 
 ## files
+alias mkdir="mkdir -pv"
+alias md="mkdir"
+alias mdcd="mkdir && cd"
+alias mcl="mdcd && ls"
+alias cdls="cd && ls"
+alias cdl="cdls"
+
+alias cd..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+
+alias mv="mv -v"
+
+alias cp="cp -vr"
+
+alias rm="tr"
+#alias rm="rm -vI"
+alias rmr="rm -rf"
+
 # ls
 alias ls="eza --icons --color --group-directories-first"
 alias l="ls"
@@ -167,24 +200,12 @@ alias trm="trash-remove"
 alias tre="trash-restore"
 alias te="trash-empty"
 
-# files
-
-alias mkdir="mkdir -pv"
-
-alias mv="mv -v"
-
-alias cp="cp -vr"
-
-alias rm="tr"
-#alias rm="rm -vI"
-alias rmr="rm -rf"
-
-# Colors
+## Colors
 alias diff='diff --color=auto'
 alias grep='grep --color=auto'
 alias ip='ip -color=auto'
 
-# xdg
+## xdg
 alias adb='HOME="$XDG_DATA_HOME"/android adb'
 
 ## Others
@@ -195,3 +216,5 @@ unset ZSH_AUTOSUGGEST_USE_ASYNC
 #(cat ~/.cache/wal/sequences &)
 
 export PATH=$PATH:/home/breno/.spicetify
+
+
