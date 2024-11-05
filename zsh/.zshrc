@@ -16,7 +16,7 @@ source $ZPLUGINDIR/zsh_unplugged/zsh_unplugged.zsh
 repos=(
   zsh-users/zsh-completions
 
-  git # manual: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git/git.plugin.zsh
+  ohmyzsh/git # manual: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git/git.plugin.zsh
   zsh-users/zsh-autosuggestions
   #Aloxaf/fzf-tab
   zsh-users/zsh-syntax-highlighting
