@@ -91,7 +91,6 @@ RPROMPT="%(?..%F{1}[%?]%f)%(1j.%F{4} [%j]%f.) %F{8}%T%f"
 HISTSIZE=1000
 HISTFILE=$XDG_STATE_HOME/zsh-history
 SAVEHIST=$HISTSIZE
-HISTDUP=erase
 setopt appendhistory
 setopt sharehistory
 setopt hist_save_no_dups
@@ -211,6 +210,9 @@ zstyle ':completion:*:man:*'      menu yes select
 ### Aliases ###
 ###############
 
+# legacy launcher
+alias minecraft="java -jar ~/.local/share/tl.jar &> /dev/null"
+
 # zoxide
 eval "$(zoxide init --cmd "cd" zsh)"
 
@@ -219,8 +221,8 @@ upd() {
     ZPLUGINDIR=${ZPLUGINDIR:-$HOME/.config/zsh/plugins}
     for d in $ZPLUGINDIR/*/.git(/); do
       #echo -e "\033[3mUpdating ${d:h:t}...\033[0m"
-      echo -e "\033[3mAtualizando ${d:h:t}...\033[0m"
-      command git -C "${d:h}" pull --ff --recurse-submodules --depth 1 --rebase --autostash
+      echo -e "  \033[3mAtualizando ${d:h:t}...\033[0m"
+      command git -C "${d:h}" pull --ff --recurse-submodules --depth 1 --rebase --autostash &>2
     done
   }
 
