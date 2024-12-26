@@ -259,18 +259,30 @@ alias p="python"
 alias minecraft="java -jar ~/.local/share/tl.jar &> /dev/null"
 alias wttr="curl https://wttr.in/Ilhabela"
 
+alias fastfetch="PF_INFO="ascii title os kernel de shell editor pkgs palette" PF_COL1=4 PF_COL3=6 XDG_CURRENT_DESKTOP="qtile" pfetch"
+alias fetch="fastfeth"
+alias ff="fetch"
+
 # Pacman
-alias pS="sudo pacman -Syu"
+alias pS="sudo pacman -S"
 alias pSs="sudo pacman -Ss"
-alias pR="sudo pacman -R"
+alias pSyu="sudo pacman -Syu"
+alias pSyyuu="sudo pacman -Syyuu"
 alias pRns="sudo pacman -Rns"
-alias pQ="pacman -Q"
+alias pR="pRns"
+#alias pR="sudo pacman -R"
+alias pQq="pacman -Qq"
+alias rmorp="s pRns $(pQq -td)"
 # yay
 alias yS="yay -S"
 alias ySs="yay -Ss"
-alias yR="yay -R"
+alias ySyu="yay -Syu"
+alias ySyyuu="yay -Syyuu"
 alias yRns="yay -Rns"
+alias yR="yRns"
+#alias yR="yay -R"
 alias yQ="yay -Q"
+alias yQq="yay -Qq"
 
 # dotfiles
 alias zshrc="n $XDG_CONFIG_HOME/zsh/.zshrc"
@@ -345,13 +357,14 @@ batdiff() {
 help() {
     "$@" --help 2>&1 | bat --plain --language=help
 }
-alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
-alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
+alias -g -- -h="-h 2>&1 | bat --language=help --style=plain"
+alias -g -- --help="--help 2>&1 | bat --language=help --style=plain"
 
 # Use bat as man pager
-#export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+#export MANPAGER="sh -c "col -bx | bat -l man -p""
 #MANROFFOPT="-c"
-alias man=batman
+#alias man=batman
+eval "$(batman --export-env)"
 
 # Update
 upd() {
@@ -364,16 +377,16 @@ upd() {
     done
   }
 
-  #echo -e '\033[1m\033[34m::\033[0m\033[1m Updating ZSH plugins...\033[0m'
-  echo -e '\033[1m\033[34m::\033[0m\033[1m Atualizando plugins ZSH...\033[0m'
+  #echo -e "\033[1m\033[34m::\033[0m\033[1m Updating ZSH plugins...\033[0m"
+  echo -e "\033[1m\033[34m::\033[0m\033[1m Atualizando plugins ZSH...\033[0m"
   plugin_update
 
-  #echo -e '\033[1m\033[34m::\033[0m\033[1m Updating pacman/AUR packages...\033[0m'
-  echo -e '\033[1m\033[34m::\033[0m\033[1m Atualizando pacotes pacman/AUR...\033[0m'
+  #echo -e "\033[1m\033[34m::\033[0m\033[1m Updating pacman/AUR packages...\033[0m"
+  echo -e "\033[1m\033[34m::\033[0m\033[1m Atualizando pacotes pacman/AUR...\033[0m"
   yay -Syu --noconfirm
 }
 
 # Colors
-alias diff='diff --color=auto'
-alias grep='grep --color=auto'
-alias ip='ip -color=auto'
+alias diff="diff --color=auto"
+alias grep="grep --color=auto"
+alias ip="ip -color=auto"
