@@ -75,7 +75,7 @@ export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
 export PYTHONSTARTUP="$XDG_CONFIG_HOME"/python/pythonrc
 
 # GnuPG
-export GNUPGHOME="$XDG_DATA_HOME"/gnupg
+#export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 
 # Cargo
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
@@ -259,9 +259,9 @@ alias p="python"
 alias minecraft="java -jar ~/.local/share/tl.jar &> /dev/null"
 alias wttr="curl https://wttr.in/Ilhabela"
 
-alias fastfetch="PF_INFO="ascii title os kernel de shell editor pkgs palette" PF_COL1=4 PF_COL3=6 XDG_CURRENT_DESKTOP="qtile" pfetch"
+alias pfetch="PF_INFO='ascii title os kernel de shell editor pkgs palette' PF_COL1=4 PF_COL3=6 XDG_CURRENT_DESKTOP='qtile' pfetch"
 alias fetch="fastfeth"
-alias ff="fetch"
+alias pf="fetch"
 
 # Pacman
 alias pS="sudo pacman -S"
@@ -271,6 +271,7 @@ alias pSyyuu="sudo pacman -Syyuu"
 alias pRns="sudo pacman -Rns"
 alias pR="pRns"
 #alias pR="sudo pacman -R"
+alias pQ="pacman -Q"
 alias pQq="pacman -Qq"
 alias rmorp="s pRns $(pQq -td)"
 # yay
