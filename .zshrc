@@ -265,7 +265,7 @@ alias pf="fetch"
 
 # Pacman
 alias pS="sudo pacman -S"
-alias pSs="sudo pacman -Ss"
+alias pSs="pacman -Ss"
 alias pSyu="sudo pacman -Syu"
 alias pSyyuu="sudo pacman -Syyuu"
 alias pRns="sudo pacman -Rns"
