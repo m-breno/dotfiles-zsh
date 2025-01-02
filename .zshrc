@@ -3,6 +3,8 @@
 #  / /\__ \ __ |
 # /___|___/_||_|
 # config by m-breno
+# 
+# Ubuntu version
 
 autoload -Uz compinit && compinit # line 164
 
@@ -12,7 +14,7 @@ autoload -Uz compinit && compinit # line 164
 #  / .__/_/\_,_/\_, /_/_//_/___/
 # /_/          /___/            
 
-ZPLUGINDIR=${ZPLUGINDIR:-${ZDOTDIR:-$HOME/.config/zsh}/plugins}
+ZPLUGINDIR=${ZPLUGINDIR:-${ZDOTDIR:-$HOME/.zsh}/plugins}
 
 # get zsh_unplugged and store it with other plugins
 if [[ ! -d $ZPLUGINDIR/zsh_unplugged ]]; then
@@ -31,8 +33,6 @@ repos=(
 
   ohmyzsh/git # manual: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git/git.plugin.zsh
   archwiki/zsh-window-title # manual: https://wiki.archlinux.org/title/Zsh#xterm_title
-	archwiki/zsh-rehash-pacman-hook # manual: https://wiki.archlinux.org/title/Zsh#On-demand_rehash
-	archwiki/zsh-pacman-cnf-handler # manual: https://wiki.archlinux.org/title/Zsh#pacman_-F_%22command_not_found%22_handler
 )
 
 # now load your plugins
@@ -44,12 +44,12 @@ plugin-load $repos
 
 ## Default apps
 #export TERM=kitty
-export PAGER=bat
-export EDITOR=nvim
-export VISUAL=$EDITOR
+#export PAGER=bat
+#export EDITOR=nvim
+#export VISUAL=$EDITOR
 
 # bat theme
-export BAT_THEME=base16
+#export BAT_THEME=base16
 
 ## XDG default dirs
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -59,47 +59,47 @@ export XDG_STATE_HOME="$HOME/.local/state"
 
 ## XDG-compliant home
 # GTK-2
-export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
+#export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 
 # Terminfo
-export TERMINFO="$XDG_DATA_HOME"/terminfo
-export TERMINFO_DIRS="$XDG_DATA_HOME"/terminfo:/usr/share/terminfo
+#export TERMINFO="$XDG_DATA_HOME"/terminfo
+#export TERMINFO_DIRS="$XDG_DATA_HOME"/terminfo:/usr/share/terminfo
 
 # adb
-export ANDROID_USER_HOME="$XDG_DATA_HOME"/android
+#export ANDROID_USER_HOME="$XDG_DATA_HOME"/android
 
 # Java
-export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
+#export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
 
 # Python
-export PYTHONSTARTUP="$XDG_CONFIG_HOME"/python/pythonrc
+#export PYTHONSTARTUP="$XDG_CONFIG_HOME"/python/pythonrc
 
 # GnuPG
 #export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 
 # Cargo
-export CARGO_HOME="$XDG_DATA_HOME"/cargo
+#export CARGO_HOME="$XDG_DATA_HOME"/cargo
 
 # Go
-export GOPATH="$XDG_DATA_HOME"/go
+#export GOPATH="$XDG_DATA_HOME"/go
 
 # ICEautorithy
-export ICEAUTHORITY="$XDG_CACHE_HOME"/ICEauthority
+#export ICEAUTHORITY="$XDG_CACHE_HOME"/ICEauthority
 
 # MyPy
-export MYPY_CACHE_DIR="$XDG_CACHE_HOME"/mypy
+#export MYPY_CACHE_DIR="$XDG_CACHE_HOME"/mypy
 
 # ZCompDump
-compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
+#compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
 
 # NPM
-export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc 
+#export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc 
 
 # adb
-alias adb='HOME="$XDG_DATA_HOME"/android adb'
+#alias adb='HOME="$XDG_DATA_HOME"/android adb'
 
 # PATH
-export PATH=$PATH:$HOME/.local/bin:$GOPATH/bin
+#export PATH=$PATH:$HOME/.local/bin:$GOPATH/bin
 
 #                              __ 
 #    ___  _______  __ _  ___  / /_
@@ -107,6 +107,7 @@ export PATH=$PATH:$HOME/.local/bin:$GOPATH/bin
 #  / .__/_/  \___/_/_/_/ .__/\__/ 
 # /_/                 /_/         
 
+# Uncomment this line if you want the prompt on the top of the screen:
 printf "\e[H\ec\e[${LINES}B"
 
 autoload -Uz vcs_info
@@ -125,7 +126,8 @@ RPROMPT="%(?..%F{1}[%?]%f)%(1j.%F{4} [%j]%f.) %F{8}%T%f"
 #                         /___/  
 
 HISTSIZE=1000
-HISTFILE=$XDG_CACHE_HOME/zsh/history
+#HISTFILE=$XDG_CACHE_HOME/zsh/history
+HISTFILE=$HOME/.zshhistory
 SAVEHIST=$HISTSIZE
 setopt appendhistory
 setopt sharehistory
@@ -158,6 +160,7 @@ bindkey "^[[3~"     delete-char
 bindkey '^[[A'      history-substring-search-up
 bindkey '^[[B'      history-substring-search-down
 
+# Uncomment the following lines if you want the prompt on the top of the screen on <ctrl> + L:
 cl() { printf "\e[H\ec\e[${LINES}B"; zle .reset-prompt }
 zle -N cl
 bindkey '^L' cl
@@ -256,46 +259,14 @@ alias h="history"
 
 alias n="nvim"
 alias p="python"
-alias minecraft="java -jar ~/.local/share/tl.jar &> /dev/null"
-alias wttr="curl https://wttr.in/Ilhabela"
 
-alias pfetch="PF_INFO='ascii title os kernel de shell editor pkgs palette' PF_COL1=4 PF_COL3=6 XDG_CURRENT_DESKTOP='qtile' pfetch"
-alias fetch="fastfeth"
-alias pf="fetch"
-
-# Pacman
-alias pS="sudo pacman -S"
-alias pSs="pacman -Ss"
-alias pSyu="sudo pacman -Syu"
-alias pSyyuu="sudo pacman -Syyuu"
-alias pRns="sudo pacman -Rns"
-alias pR="pRns"
-#alias pR="sudo pacman -R"
-alias pQ="pacman -Q"
-alias pQq="pacman -Qq"
-alias rmorph="s pRns $(pQq -td)"
-# yay
-alias yS="yay -S"
-alias ySs="yay -Ss"
-alias ySyu="yay -Syu"
-alias ySyyuu="yay -Syyuu"
-alias yRns="yay -Rns"
-alias yR="yRns"
-#alias yR="yay -R"
-alias yQ="yay -Q"
-alias yQq="yay -Qq"
-
-# dotfiles
-alias zshrc="n $XDG_CONFIG_HOME/zsh/.zshrc"
-alias zshd="n $XDG_CONFIG_HOME/zsh/"
-alias nvimd="n $XDG_CONFIG_HOME/nvim/"
-alias qtilerc="n $XDG_CONFIG_HOME/qtile/config.py"
-alias footrc="n $XDG_CONFIG_HOME/foot/foot.ini"
-alias hyprrc="n $XDG_CONFIG_HOME/hypr/hyprland.conf"
-alias hyprd="n $XDG_CONFIG_HOME/hypr"
+#alias pfetch="PF_INFO='ascii title os kernel de shell editor pkgs palette' PF_COL1=4 PF_COL3=6 XDG_CURRENT_DESKTOP='qtile' pfetch"
+#alias fetch="fastfeth"
+#alias pf="fetch"
 
 # ls
-alias ls="eza --icons --color --group-directories-first"
+# Uncomment this line to use eza instead of ls (for icons)
+#alias ls="eza --icons --color --group-directories-first"
 alias l="ls"
 alias la="ls -a"
 alias ll="ls -l"
@@ -306,7 +277,8 @@ alias llr="ll -r"
 alias llar="lla -r"
 
 # zoxide/cd
-eval "$(zoxide init --cmd "cd" zsh)"
+# Uncomment this line to use zoxide instead of cd
+#eval "$(zoxide init --cmd "cd" zsh)"
 
 cdls() {
   cd $@
@@ -322,7 +294,8 @@ mkcd() {
   mkdir $@
   cd $@
 }
-alias mcl="mkcd && ls"
+alias mkcdls="mkcd && ls"
+alias mkcdl="mkcd && ls"
 
 alias cd..="cd .."
 alias ...="cd ../.."
@@ -334,38 +307,38 @@ alias mv="mv -v"
 alias cp="cp -rv"
 
 # trash/rm
+# Comment the following lines to use normal rm instead of trash
 alias tr="trash -v"
 alias tl="trash-list"
 alias trm="trash-remove"
 alias tre="trash-restore"
 alias te="trash-empty"
-
 alias rm="tr"
 #alias rm="rm -vI"
 alias rmr="rm -rfv"
 
 # Clipboard
-alias clip="wl-copy"
-alias clipp="wl-paste"
+#alias clip="wl-copy"
+#alias clipp="wl-paste"
 
 # Bat
 # Pretty git diff
-batdiff() {
-    git diff --name-only --relative --diff-filter=d | xargs bat --diff
-}
+#batdiff() {
+#    git diff --name-only --relative --diff-filter=d | xargs bat --diff
+#}
 
 # Pretty --help
-help() {
-    "$@" --help 2>&1 | bat --plain --language=help
-}
-alias -g -- -h="-h 2>&1 | bat --language=help --style=plain"
-alias -g -- --help="--help 2>&1 | bat --language=help --style=plain"
+#help() {
+#    "$@" --help 2>&1 | bat --plain --language=help
+#}
+#alias -g -- -h="-h 2>&1 | bat --language=help --style=plain"
+#alias -g -- --help="--help 2>&1 | bat --language=help --style=plain"
 
 # Use bat as man pager
 #export MANPAGER="sh -c "col -bx | bat -l man -p""
 #MANROFFOPT="-c"
 #alias man=batman
-eval "$(batman --export-env)"
+#eval "$(batman --export-env)"
 
 # Update
 upd() {
@@ -383,8 +356,8 @@ upd() {
   plugin_update
 
   #echo -e "\033[1m\033[34m::\033[0m\033[1m Updating pacman/AUR packages...\033[0m"
-  echo -e "\033[1m\033[34m::\033[0m\033[1m Atualizando pacotes pacman/AUR...\033[0m"
-  yay -Syu --noconfirm
+  #echo -e "\033[1m\033[34m::\033[0m\033[1m Atualizando pacotes pacman/AUR...\033[0m"
+  #yay -Syu --noconfirm
 }
 
 # Colors
