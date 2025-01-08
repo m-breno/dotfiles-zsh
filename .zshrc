@@ -273,7 +273,7 @@ alias pR="pRns"
 #alias pR="sudo pacman -R"
 alias pQ="pacman -Q"
 alias pQq="pacman -Qq"
-alias rmorph="s pRns $(pQq -td)"
+alias rmorph="pRns $(pQq -td)"
 # yay
 alias yS="yay -S"
 alias ySs="yay -Ss"
