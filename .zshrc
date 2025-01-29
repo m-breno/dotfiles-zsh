@@ -31,8 +31,8 @@ repos=(
 
   ohmyzsh/git # manual: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git/git.plugin.zsh
   archwiki/zsh-window-title # manual: https://wiki.archlinux.org/title/Zsh#xterm_title
-	archwiki/zsh-rehash-pacman-hook # manual: https://wiki.archlinux.org/title/Zsh#On-demand_rehash
-	archwiki/zsh-pacman-cnf-handler # manual: https://wiki.archlinux.org/title/Zsh#pacman_-F_%22command_not_found%22_handler
+  archwiki/zsh-rehash-pacman-hook # manual: https://wiki.archlinux.org/title/Zsh#On-demand_rehash
+  archwiki/zsh-pacman-cnf-handler # manual: https://wiki.archlinux.org/title/Zsh#pacman_-F_%22command_not_found%22_handler
 )
 
 # now load your plugins
