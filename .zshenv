@@ -58,3 +58,5 @@ alias adb='HOME="$XDG_DATA_HOME"/android adb'
 # PATH
 export PATH=$PATH:$HOME/.local/bin:$GOPATH/bin
 
+# Wine
+export WINEPREFIX="$XDG_DATA_HOME"/wine
