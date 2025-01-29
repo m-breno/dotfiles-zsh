@@ -1,16 +1,16 @@
-#  _______ _  _ 
+#  _______ _  _
 # |_  / __| || |
 #  / /\__ \ __ |
 # /___|___/_||_|
 # config by m-breno
 
-autoload -Uz compinit && compinit # line 164
+autoload -Uz compinit && compinit
 
-#          __          _        
+#          __          _
 #    ___  / /_ _____ _(_)__  ___
 #   / _ \/ / // / _ `/ / _ \(_-<
 #  / .__/_/\_,_/\_, /_/_//_/___/
-# /_/          /___/            
+# /_/          /___/
 
 ZPLUGINDIR=${ZPLUGINDIR:-${ZDOTDIR:-$HOME/.config/zsh}/plugins}
 
@@ -21,7 +21,7 @@ fi
 source $ZPLUGINDIR/zsh_unplugged/zsh_unplugged.zsh
 
 repos=(
-	romkatv/zsh-defer
+  romkatv/zsh-defer
   zsh-users/zsh-completions
 
   zsh-users/zsh-autosuggestions
@@ -104,8 +104,8 @@ export PATH=$PATH:$HOME/.local/bin:$GOPATH/bin
 #                              __ 
 #    ___  _______  __ _  ___  / /_
 #   / _ \/ __/ _ \/  ' \/ _ \/ __/
-#  / .__/_/  \___/_/_/_/ .__/\__/ 
-# /_/                 /_/         
+#  / .__/_/  \___/_/_/_/ .__/\__/
+# /_/                 /_/
 
 printf "\e[H\ec\e[${LINES}B"
 
@@ -118,11 +118,11 @@ precmd () { print }
 PS1='%F{1}%n%f@%F{3}%m%f %F{4}%B%1~%b%f > '
 RPROMPT="%(?..%F{1}[%?]%f)%(1j.%F{4} [%j]%f.) %F{8}%T%f"
 
-#    __   _     __               
+#    __   _     __
 #   / /  (_)__ / /____  ______ __
 #  / _ \/ (_-</ __/ _ \/ __/ // /
-# /_//_/_/___/\__/\___/_/  \_, / 
-#                         /___/  
+# /_//_/_/___/\__/\___/_/  \_, /
+#                         /___/
 
 HISTSIZE=1000
 HISTFILE=$XDG_CACHE_HOME/zsh/history
@@ -140,11 +140,11 @@ setopt auto_cd
 autoload -U select-word-style
 select-word-style bash
 
-#    __              
+#    __
 #   / /_____ __ _____
 #  /  '_/ -_) // (_-<
 # /_/\_\\__/\_, /___/
-#          /___/     
+#          /___/
 
 bindkey -e
 
@@ -242,7 +242,7 @@ zstyle ':completion:*:manuals'    separate-sections true
 #zstyle ':completion:*:manuals.*'  insert-sections   true
 zstyle ':completion:*:man:*'      menu yes select
 
-#        ___                
+#        ___
 #  ___ _/ (_)__ ____ ___ ___
 # / _ `/ / / _ `(_-</ -_|_-<
 # \_,_/_/_/\_,_/___/\__/___/
@@ -351,12 +351,12 @@ alias clipp="wl-paste"
 # Bat
 # Pretty git diff
 batdiff() {
-    git diff --name-only --relative --diff-filter=d | xargs bat --diff
+  git diff --name-only --relative --diff-filter=d | xargs bat --diff
 }
 
 # Pretty --help
 help() {
-    "$@" --help 2>&1 | bat --plain --language=help
+  "$@" --help 2>&1 | bat --plain --language=help
 }
 alias -g -- -h="-h 2>&1 | bat --language=help --style=plain"
 alias -g -- --help="--help 2>&1 | bat --language=help --style=plain"
