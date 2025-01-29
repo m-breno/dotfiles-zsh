@@ -192,6 +192,7 @@ alias s="sudo"
 alias se="sudoedit"
 alias sctl="systemctl"
 alias q="exit"
+alias :q="exit"
 alias h="history"
 
 alias n="nvim"
@@ -204,7 +205,7 @@ alias fetch="fastfeth"
 alias pf="fetch"
 
 # Pacman
-alias pS="sudo pacman -S"
+alias pS="sudo pacman -Sy"
 alias pSs="pacman -Ss"
 alias pSyu="sudo pacman -Syu"
 alias pSyyuu="sudo pacman -Syyuu"
@@ -213,6 +214,7 @@ alias pR="pRns"
 #alias pR="sudo pacman -R"
 alias pQ="pacman -Q"
 alias pQq="pacman -Qq"
+alias pQs="pacman -Qs"
 alias rmorph="pRns $(pQq -td)"
 # yay
 alias yS="yay -S"
@@ -236,21 +238,26 @@ alias hyprd="n $XDG_CONFIG_HOME/hypr"
 
 # ls
 alias ls="eza --icons --color --group-directories-first"
-alias l="ls"
-alias la="ls -a"
+alias l="ll"
+alias la="ll -a"
 alias ll="ls -l"
 alias lla="ll -a"
-alias lr="ls -r"
-alias lar="la -r"
-alias llr="ll -r"
-alias llar="lla -r"
+alias lsa="ls -a"
+alias lr="ls -R"
+alias lar="la -R"
+alias llr="ll -R"
+alias llar="lla -R"
+alias lt="ls -T"
+alias lat="la -T"
+alias llt="ll -T"
+alias llat="lla -T"
 
 # zoxide/cd
 eval "$(zoxide init --cmd "cd" zsh)"
 
 cdls() {
   cd $@
-	ls
+  ls
 }
 alias cdl="cdls"
 
