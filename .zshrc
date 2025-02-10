@@ -200,7 +200,7 @@ alias p="python"
 alias minecraft="java -jar ~/.local/share/tl.jar &> /dev/null"
 alias wttr="curl https://wttr.in/Ilhabela"
 
-alias pfetch="PF_INFO='ascii title os kernel de shell editor pkgs palette' PF_COL1=4 PF_COL3=6 XDG_CURRENT_DESKTOP='qtile' pfetch"
+alias pfetch="PF_INFO='ascii title os kernel de shell editor pkgs palette' PF_COL1=4 PF_COL3=6 pfetch"
 alias fetch="fastfeth"
 alias pf="fetch"
 
